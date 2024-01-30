@@ -90,7 +90,7 @@ export default defineComponent({
                         githubUsername: 'TheEvilSkeleton',
                         twitterUsername: 'JaakunaGaikotsu',
                         mastodonLink: 'https://social.treehouse.systems/@TheEvilSkeleton',
-                        website: 'https://theevilskeleton.gitlab.io/',
+                        website: 'https://tesk.page/',
                     },
                 },
                 {
@@ -118,19 +118,9 @@ export default defineComponent({
                     image: '/assets/images/pics/kbdharun.jpeg',
                     links: {
                         githubUsername: 'kbdharun',
-                        twitterUsername: 'BlogsKbdk',
+                        twitterUsername: 'kbdharun',
                         mastodonLink: 'https://mastodon.social/@kbdharunkrishna',
                         website: 'https://kbdharun.dev/',
-                    },
-                },
-                {
-                    name: 'Kramo',
-                    description: 'UI Designer and Illustrator',
-                    image: '/assets/images/pics/kra-mo.jpeg',
-                    links: {
-                        githubUsername: 'kra-mo',
-                        mastodonLink: 'https://fosstodon.org/@kramo',
-                        website: 'https://kramo.hu/',
                     },
                 },
                 {

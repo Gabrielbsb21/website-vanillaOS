@@ -21,11 +21,12 @@
                     <li><b>Legal</b></li>
                     <li><a href="//fabricators.ltd/">fabricators Ltd.</a></li>
                     <li><router-link :to="{ name: 'privacy-policy' }">Privacy Policy</router-link></li>
+                    <li><router-link :to="{ name: 'os-privacy-policy' }">OS Privacy Policy</router-link></li>
                     <li><router-link :to="{ name: 'cookies-policy' }">Use of Cookies</router-link></li>
                     <li><router-link :to="{ name: 'brand' }">Our Brand</router-link></li>
                     <li><router-link :to="{ name: 'get-involved-funding' }">Funding</router-link></li>
                     <li><router-link :to="{ name: 'licenses' }">Licenses</router-link></li>
-                    <li><a href="//fabricators.ltd/en/contact">File a Complaint</a></li>
+                    <li><a href="//fabricators.ltd/en/contact.html">File a Complaint</a></li>
                     <li><a href="//status.vanillaos.org/">System Status</a></li>
                 </ul>
                 <ul>
