@@ -52,17 +52,17 @@
                     <li><router-link :to="{ name: 'get-involved' }">Get Involved</router-link></li>
                     <li><router-link :to="{ name: 'download' }">Download</router-link></li>
                 </ul>
-             </nav>
-            <div class="topBar-hamburger">
-                <div class="topBar-hamburger-wrapper" :class="{ active: isMenuToggled }" @click="toggleMenu">
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
+            </nav>
+            <button class="topBar-hamburger topBar-hamburger--collapse topBar-hamburger--squeeze"
+                :class="{ 'is-active': isMenuToggled }" @click="toggleMenu" type="button">
+                <span class="topBar-hamburger-box">
+                    <span class="topBar-hamburger-inner"></span>
+                </span>
+            </button>
         </div>
     </header>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRoute } from "vue-router";
