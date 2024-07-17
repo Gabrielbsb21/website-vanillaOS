@@ -1,6 +1,8 @@
 <template>
     <div class="flexGrid anim--fadeIn">
-        <card v-for="(item, index) in getInvolvedItems" :key="index" :item="item" />
+        <card v-for="(item, index) in getInvolvedItems" :key="index" :item="item" :class="item.extraClasses">
+            <btn-adv v-if="item.btn" :icon="item" :link="item">{{ item.btn }}</btn-adv>
+        </card>
     </div>
 </template>
   
@@ -54,8 +56,7 @@ export default defineComponent({
                     to: { name: 'developers-program' },
                     type: 'adv',
                     icon: 'how_to_reg',
-                    title: 'Join the',
-                    title2: 'Developers Program',
+                    title: ['Join the', 'Developers Program'],
                     description: 'Get access to latest experimental builds.',
                     btn: 'Apply Now',
                     extraClasses: ['card--type-dev']

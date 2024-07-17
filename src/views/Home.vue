@@ -221,7 +221,9 @@
     </header>
     <div class="spacer"></div>
     <div class="flexGrid flexGrid--3">
-      <card v-for="(item, index) in medias" :key="index" :item="item" />
+      <card v-for="(item, index) in medias" :key="index" :item="item" :class="item.extraClasses">
+        <btn-adv v-if="item.type === 'adv'" :icon="item" :link="item">{{ item.btn }}</btn-adv>
+      </card>
     </div>
   </section>
 </template>
@@ -309,7 +311,7 @@ export default defineComponent({
       medias: [
         {
           icon: '/assets/images/media/zdnet.svg',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.zdnet.com/article/vanilla-os-offers-a-new-take-on-security-for-the-linux-desktop/',
           extLink: true,
@@ -318,7 +320,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/the_register.svg',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.theregister.com/2023/01/03/vanilla_os_2210/',
           extLink: true,
@@ -327,7 +329,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/techrepublic-logo.svg',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.techrepublic.com/article/vanilla-os-linux-desktop/',
           extLink: true,
@@ -336,7 +338,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/omg-linux.png',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.omglinux.com/vanilla-os-first-release-download/',
           extLink: true,
@@ -345,7 +347,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/phoronix.png',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.phoronix.com/news/Vanilla-OS-2.0-Debian',
           extLink: true,
@@ -354,7 +356,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/itsfoss-logo.webp',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://news.itsfoss.com/vanilla-os-beta/',
           extLink: true,
@@ -363,7 +365,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/muo-logo-full-colored-light.svg',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.makeuseof.com/vanilla-os-immutable-linux-distro/',
           extLink: true,
@@ -372,7 +374,7 @@ export default defineComponent({
         },
         {
           icon: '/assets/images/media/ha-logo-2x.png',
-          imageAsIcon: true,
+          iconAsImage: true,
           imageClasses: ['img--white-on-dark'],
           to: 'https://www.hostingadvice.com/blog/vanillaos-immutable-linux-distribution/',
           extLink: true,
@@ -383,7 +385,7 @@ export default defineComponent({
           to: { name: 'get-involved-spread' },
           type: 'adv',
           icon: 'how_to_reg',
-          title2: 'Spread the word',
+          title: 'Spread the word',
           description: 'Help us spread the word about Vanilla OS and its features.',
           btn: 'Read more',
           extraClasses: [
