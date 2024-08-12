@@ -11,7 +11,7 @@
         </header>
         <div class="hero-footer">
           <div class="flexList">
-            <router-link :to="{ name: 'download' }" class="btn btn--primary btn--big">
+            <router-link :to="{ name: 'download-orchid-stable' }" class="btn btn--primary btn--big">
               <span class="mdi material-icons-outlined">file_download</span>
               <span>Download Now</span>
             </router-link>
@@ -29,7 +29,7 @@
   </section>
 
   <nav class="navigationBar" aria-label="go to sections">
-    <h2 class="text text--dimmed" aria-labelledby=""> Vanilla OS is</h2>
+    <h2 class="text text--dimmed" aria-labelledby=""> Vanilla OS for</h2>
     <ul>
       <li :class="{ 'active': activeSection === 'work' }">
         <button @click="scrollTo('#work')">Work</button>
@@ -43,6 +43,9 @@
       <li :class="{ 'active': activeSection === 'access' }">
         <button @click="scrollTo('#access')">Access</button>
       </li>
+    </ul>
+    <h2 class="text text--dimmed" aria-labelledby=""> Vanilla OS is</h2>
+    <ul>
       <li :class="{ 'active': activeSection === 'solid' }">
         <button @click="scrollTo('#solid')">Solid</button>
       </li>

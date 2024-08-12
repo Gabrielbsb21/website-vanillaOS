@@ -61,6 +61,18 @@ export default function createRouterInstance(clientType: string) {
               freePageLayout: true,
             },
           },
+          {
+            path: "/download/orchid/stable",
+            name: "download-orchid-stable",
+            component: () =>// @ts-ignore
+              import(/* webpackChunkName: "Download" */ "@/views/download/DownloadOrchidStable.vue"),
+            meta: {
+              title: "Vanilla OS 2 Orchid Stable",
+              description: "Try the latest development version of Vanilla OS.",
+              parent: "download",
+              freePageLayout: true,
+            },
+          },
         ]
       },
       {
@@ -284,6 +296,16 @@ export default function createRouterInstance(clientType: string) {
             },
           },
           {
+            path: "/updates",
+            name: "updates",
+            component: () =>// @ts-ignore
+              import(/* webpackChunkName: "Updates" */ "@/views/Updates.vue"),
+            meta: {
+              title: "Updates",
+              description: "Check out the latest updates of Vanilla OS.",
+            },
+          },
+          {
             path: "/download",
             name: "download",
             component: () =>// @ts-ignore
@@ -301,6 +323,16 @@ export default function createRouterInstance(clientType: string) {
             meta: {
               title: "Information for Nerds",
               description: "What is Vanilla OS from a technical point of view.",
+            },
+          },
+          {
+            path: "/testing-components",
+            name: "testing-components",
+            component: () =>// @ts-ignore
+              import(/* webpackChunkName: "Download" */ "@/views/TestingComponents.vue"),
+            meta: {
+              title: "Testing Components",
+              description: "Workspace to test components.",
             },
           },
         ]

@@ -1,5 +1,5 @@
 <template>
-    <div class="page page--article">
+    <div class="page page--article" @click="handleClick">
         <div class="page-wrapper container">
             <div class="page-header">
                 <div class="page-nav" v-if="parentRoute?.name">
@@ -12,7 +12,9 @@
                 <p>{{ article?.description }}</p>
             </div>
             <div class="page-content anim--fadeIn">
-                <div class="text text--rich" v-html="parsedHTML" @click="handleClick"></div>
+                <div class="text text--rich">
+                    <component :is="compiledTemplate" />
+                </div>
             </div>
             <div class="card card--hz card--type-adv card--type-adv--hz card--type-funnyletter">
                 <div class="card-header">
@@ -20,8 +22,12 @@
                     <h2>Subscribe to the Newsletter</h2>
                     <div class="btn btn--primary" @click="isNotMailNotChimpOpen = true">
                         <span class="mdi material-icons">email</span>
-                        <span>Subscribe Now</span>
+                        <span>Subscribe via Email</span>
                     </div>
+                    <a class="btn btn--primary" href="https://vanillaos.org/feed.xml">
+                        <span class="mdi material-icons">newspaper</span>
+                        <span>Subscribe via the RSS Feed</span>
+                    </a>
                 </div>
                 <div class="card-content">
                     <div class="flexList">
@@ -81,13 +87,13 @@
         @close="closeImageShowcase" @navigate="navigateImage" />
     <notmail-not-chimp :is-open="isNotMailNotChimpOpen" @close="closeNotMailNotChimp" />
 </template>
-  
+
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import { useRoute } from 'vue-router';
 import { loadArticle } from '@/articlesLoader';
 import type { Article } from '@/articlesLoader';
-import { useHead } from 'unhead'
+import { useHead } from 'unhead';
 
 export default defineComponent({
     name: 'article',
@@ -95,6 +101,7 @@ export default defineComponent({
         return {
             article: null as Article | null,
             parsedHTML: '',
+            compiledTemplate: null,
             shareModalOpen: false,
             imageShowcaseOpen: false,
             articleImages: [] as string[],
@@ -105,6 +112,11 @@ export default defineComponent({
         };
     },
     methods: {
+        compileTemplate(template: string) {
+            return defineComponent({
+                template,
+            });
+        },
         handleTocItemClick(anchor: string) {
             const currentPath = this.$router.currentRoute.value.path;
             const newHash = `#${anchor}`;
@@ -115,7 +127,6 @@ export default defineComponent({
         },
         scrollToAnchor(anchor: string) {
             const element = document.getElementById(anchor);
-            console.log(element);
             if (element) {
                 window.scrollTo(0, 0);
                 element.scrollIntoView({ behavior: 'smooth' });
@@ -139,7 +150,7 @@ export default defineComponent({
             this.currentImageIndex = index;
         },
         extractArticleImages(content: string) {
-            const imgRegex = /<img[^>]+src="([^">]+)/g;
+            const imgRegex = /<img(?![^>]*class="[^"]*Bento-card-carousel-page-image[^"]*")[^>]+src="([^">]+)/g;
             const matches = [];
             let match;
             while ((match = imgRegex.exec(content))) {
@@ -149,7 +160,9 @@ export default defineComponent({
         },
         handleClick(event: MouseEvent) {
             const target = event.target as HTMLElement;
-            if (target.tagName === 'IMG') {
+            const image = target.closest('img');
+
+            if (image) {
                 const src = target.getAttribute('src');
                 if (src) {
                     const index = this.articleImages.indexOf(src);
@@ -166,7 +179,9 @@ export default defineComponent({
 
         try {
             this.article = await loadArticle(date as string, slug as string);
-            this.parsedHTML = this.article?.content || '';
+            const replacedContent = this.article?.content || '';
+            // @ts-ignore
+            this.compiledTemplate = this.compileTemplate(replacedContent);
             this.articleLoaded = true;
             useHead({
                 title: `${this.article!.title} - ${document.title}`,
@@ -236,7 +251,7 @@ export default defineComponent({
             let match;
 
             while ((match = headingRegex.exec(this.article.content))) {
-                const title = decodeURIComponent(match[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'"));
+                const title = decodeURIComponent(match[2].replace(/&/g, '&amp;').replace(/&quot;/g, '"').replace(/&#39;/g, "'"));
                 const anchor = title.replace(/['",]/g, '').replace(/\s+/g, '-').toLowerCase();
                 matches.push({
                     anchor: anchor,

@@ -7,6 +7,9 @@
                 <p>Choose below the platform on which to share the article.</p>
             </div>
             <div class="flexGrid">
+                <a :href="mastodonLink" target="_blank" class="btn btn--secondary flexGrid-item">
+                    <i class="fa-brands fa-mastodon"></i>
+                </a>
                 <a :href="twitterLink" target="_blank" class="btn btn--secondary flexGrid-item">
                     <i class="fa-brands fa-twitter"></i>
                 </a>
@@ -37,7 +40,7 @@
         </div>
     </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRoute } from 'vue-router';
@@ -60,6 +63,9 @@ export default defineComponent({
             const { fullPath } = useRoute();
             const domain = window.location.origin;
             return domain + fullPath;
+        },
+        mastodonLink() {
+            return `https://shareopenly.org/share/?url=${encodeURIComponent(this.articleLink)}`;
         },
         twitterLink() {
             return `https://twitter.com/share?url=${encodeURIComponent(this.articleLink)}`;
@@ -98,7 +104,14 @@ export default defineComponent({
         closeModal() {
             this.$emit('close');
         },
+        handleKeyboardEvent(event: KeyboardEvent) {
+            if (event.key === "Escape") {
+                this.closeModal();
+            }
+        },
     },
+    mounted() {
+      window.addEventListener("keydown", this.handleKeyboardEvent);
+    }
 });
 </script>
-  
