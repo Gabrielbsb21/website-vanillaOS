@@ -50,7 +50,7 @@
                             </div>
                             <a href="/developers-program" class="btn btn--primary">
                                 <span>Learn More</span>
-                                <span class="mdi material-icons">arrow_forward</span>
+                                <span class="material-symbols-outlined">arrow_forward</span>
                             </a>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                                         <span class="badges-item badges-item--green">Latest</span>
                                     </div>
                                     <a class="btn--link btn--inline" target="_blank" :href="release.url">
-                                        <span class="mdi material-icons-outlined">file_download</span>
+                                        <span class="material-symbols-outlined">file_download</span>
                                     </a>
                                 </div>
                             </td>
@@ -100,9 +100,13 @@
                         <h4>Be the first to know when stable release is out</h4>
                         <h2>Subscribe to the Newsletter</h2>
                         <div class="btn btn--primary" @click="isNotMailNotChimpOpen = true">
-                            <span class="mdi material-icons">email</span>
-                            <span>Subscribe Now</span>
+                            <span class="material-symbols-outlined">email</span>
+                            <span>Subscribe via Email</span>
                         </div>
+                        <a class="btn btn--primary" href="//vanillaos.org/feed.xml">
+                            <span class="material-symbols-outlined">newspaper</span>
+                            <span>Subscribe via the RSS Feed</span>
+                        </a>
                     </div>
                     <div class="card-content">
                         <div class="flexList">
@@ -115,10 +119,10 @@
                 <router-link class="flexGrid-item card card--clickable card--min flexGrid-item"
                     to="/community">
                     <div class="card-header">
-                        <h3><span class="mdi material-icons">record_voice_over</span> Discord Server</h3>
+                        <h3><span class="material-symbols-outlined">record_voice_over</span> Discord Server</h3>
                         <div>
                             <div class="btn btn--link btn--inline btn--med"><span
-                                    class="mdi material-icons">arrow_forward</span></div>
+                                    class="material-symbols-outlined">arrow_forward</span></div>
                         </div>
                     </div>
                     <div class="card-content">
@@ -135,7 +139,7 @@
         </div>
     </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
 

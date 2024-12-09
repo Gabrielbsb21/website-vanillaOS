@@ -18,9 +18,13 @@
                     <h4>Don't miss the news</h4>
                     <h2>Subscribe to the Newsletter</h2>
                     <div class="btn btn--primary" @click="isNotMailNotChimpOpen = true">
-                        <span class="mdi material-icons">email</span>
-                        <span>Subscribe Now</span>
+                        <span class="material-symbols-outlined">email</span>
+                        <span>Subscribe via Email</span>
                     </div>
+                    <button class="btn btn--primary" @click="openRSSFeed">
+                        <span class="material-symbols-outlined">newspaper</span>
+                        <span>Subscribe via the RSS Feed</span>
+                    </button>
                 </div>
                 <div class="card-content">
                     <div class="flexList">
@@ -34,7 +38,7 @@
         </div>
     </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 
@@ -80,6 +84,9 @@ export default defineComponent({
     methods: {
         closeNotMailNotChimp() {
             this.isNotMailNotChimpOpen = false;
+        },
+        openRSSFeed() {
+            window.open('https://vanillaos.org/feed.xml', '_blank');
         },
     },
 });

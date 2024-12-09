@@ -14,7 +14,7 @@
                         <div class="form-group-item">
                             <div class="form-field">
                                 <span class="form-field-icon">
-                                    <span class="mdi material-icons">email</span>
+                                    <span class="material-symbols-outlined">email</span>
                                 </span>
                                 <input type="email" name="EMAIL" class="form-field-input form-field-input--email"
                                     id="mce-EMAIL" value="" placeholder="Email address" required>
@@ -28,7 +28,7 @@
                     <div class="form-footer">
                         <div class="flexList">
                             <button type="submit" name="subscribe" class="btn btn--primary" value="Subscribe">
-                                <span class="md material-icons">send</span>
+                                <span class="material-symbols-outlined">send</span>
                                 <span>Subscribe</span>
                             </button>
                             <p class="brandingLogo" style="margin: 0px auto;">
@@ -43,11 +43,11 @@
             </form>
         </div>
         <div class="btn btn--link btn--circle btn--close" @click="closeModal">
-            <span class="mdi material-icons">close</span>
+            <span class="material-symbols-outlined">close</span>
         </div>
     </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from "vue";
 

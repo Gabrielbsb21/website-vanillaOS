@@ -48,7 +48,7 @@
                                 :to="{ name: 'article', params: { date: '2024-01-30', slug: 'vanilla-os-2-orchid-beta-is-here' } }"
                                 class="btn btn--primary">
                                 <span>Learn More</span>
-                                <span class=" mdi material-icons-outlined">arrow_forward</span>
+                                <span class=" material-symbols-outlined">arrow_forward</span>
                             </router-link>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                         <span class="badges-item badges-item--green">Latest</span>
                                     </div>
                                     <a class="btn--link btn--inline" target="_blank" :href="release.Url">
-                                        <span class="mdi material-icons-outlined">file_download</span>
+                                        <span class="material-symbols-outlined">file_download</span>
                                     </a>
                                 </div>
                             </td>
@@ -98,9 +98,13 @@
                         <h4>Be the first to know when stable release is out</h4>
                         <h2>Subscribe to the Newsletter</h2>
                         <div class="btn btn--primary" @click="isNotMailNotChimpOpen = true">
-                            <span class="mdi material-icons">email</span>
-                            <span>Subscribe Now</span>
+                            <span class="material-symbols-outlined">email</span>
+                            <span>Subscribe via Email</span>
                         </div>
+                        <a class="btn btn--primary" href="//vanillaos.org/feed.xml">
+                            <span class="material-symbols-outlined">newspaper</span>
+                            <span>Subscribe via the RSS Feed</span>
+                        </a>
                     </div>
                     <div class="card-content">
                         <div class="flexList">
@@ -123,7 +127,7 @@
         </div>
     </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 
